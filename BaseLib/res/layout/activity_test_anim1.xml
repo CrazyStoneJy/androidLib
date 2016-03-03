@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <Button android:text="start"
+            android:id="@+id/text_anim_btn1"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"></Button>
+    <TextView android:layout_height="wrap_content"
+              android:layout_width="wrap_content"
+              android:text="hello world"
+              android:textSize="24dp"
+              android:id="@+id/test_anim_txt1"
+              android:layout_centerInParent="true"
+              android:textColor="#336699"></TextView>
+
+</RelativeLayout>

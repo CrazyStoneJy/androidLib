@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ViewFlipper android:layout_height="@dimen/viewfillper_height"
+                 android:layout_width="match_parent"
+                 android:id="@+id/view_flipper"
+                 android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                 android:flipInterval="2000">
+
+        <TextView android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="@string/hello_world"
+                  android:id="@+id/viewflipper_txt1"
+                  android:layout_gravity="center"/>
+        <TextView android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="@string/hello_world"
+                  android:id="@+id/viewflipper_txt2"
+                  android:layout_gravity="center"/>
+        <TextView android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="@string/hello_world"
+                  android:id="@+id/viewflipper_txt3"
+                  android:layout_gravity="center"/>
+        <TextView android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:text="@string/hello_world"
+                  android:id="@+id/viewflipper_txt4"
+                  android:layout_gravity="center"/>
+
+    </ViewFlipper>
+
+    <Spinner android:layout_height="wrap_content"
+             android:layout_width="wrap_content"
+             android:id="@+id/viewflipper_spiiner"></Spinner>
+
+
+</LinearLayout>

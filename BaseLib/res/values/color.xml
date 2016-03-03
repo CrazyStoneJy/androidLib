@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="drak_purple">#8B475D</color>
+    <color name="red">#ff0000</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#00ff00</color>
+    <color name="blue">#0000ff</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="light_gray">#EEE5DE</color>
+
+    <!--snake  -->
+    <color name="muted_red">#ff400010</color>
+    <color name="muted_yellow">#ff404000</color>
+    <color name="muted_blue">#ff100050</color>
+    <color name="muted_green">#ff004000</color>
+    <color name="text_violet">#ff8888ff</color>
+</resources>

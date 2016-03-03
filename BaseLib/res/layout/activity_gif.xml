@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:crazystone="http://schemas.android.com/apk/res/com.crazystone.test"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.crazystone.test.graphic.MyGifView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            crazystone:gif="@drawable/animated_gif"
+            android:src="@drawable/animated_gif"
+            android:id="@+id/aty_gif"/>
+
+</LinearLayout>

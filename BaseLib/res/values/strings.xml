@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BaseLib</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string-array name="viewfilpper_content">
+        <item>巨魔战将</item>
+        <item>幻影刺客</item>
+        <item>影魔</item>
+        <item>白牛</item>
+    </string-array>
+
+    <string-array name="viewflipper_title">
+        <item>pull up</item>
+        <item>pull left</item>
+        <item>alpha</item>
+        <item>hyerlink</item>
+    </string-array>
+
+    <string name="mode_ready">Snake\nPress Up To Play</string>
+    <string name="mode_pause">Paused\nPress Up To Resume</string>
+    <string name="mode_lose">Game Over\nScore: %1$d \nPress Up To Play</string>
+</resources>
