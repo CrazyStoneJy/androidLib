@@ -4,6 +4,8 @@ import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.hardware.Camera;
+//import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +40,8 @@ public class MainActivity extends BaseActivity {
         txt.setText("ni ma a ");
         edit.setText("hehheheheh");
         handControl();
+
+//        CameraManager
     }
 
 

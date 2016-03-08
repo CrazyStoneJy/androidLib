@@ -6,14 +6,19 @@ import com.crazystone.utils.common.L;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
+ * sdcrad存储的utils
  * Created by crazystone on 2016/3/8.
  */
 public class StorageUtils {
 
     public static final String PATH = "photo";
-    public static String imgPath;
+    public static final int MEDIA_TYPE_IMAGE = 1,
+            MEDIA_TYPE_VIDEO = 2;
+//    public static String imgPath;
 
     /**
      * 判断sdcard是否可以写文件
@@ -41,7 +46,7 @@ public class StorageUtils {
         return false;
     }
 
-
+    @Deprecated
     public static File getExternalFile() {
         File file = null;
         if (isExternalStorageWritable()) {
@@ -50,6 +55,7 @@ public class StorageUtils {
         return file;
     }
 
+    @Deprecated
     public static File getExternalFile(String path) {
         File file = null;
         StringBuilder sb = new StringBuilder();
@@ -58,7 +64,6 @@ public class StorageUtils {
             L.d("Orignal path:" + originalPath);
             sb.append(originalPath).append("/").append(PATH).append("/").append(path);
             L.d("photo path:" + sb.toString());
-            imgPath = sb.toString();
             file = new File(sb.toString());
             if (!file.exists()) try {
                 file.createNewFile();
@@ -68,4 +73,33 @@ public class StorageUtils {
         }
         return file;
     }
+
+
+    public static File getExternalFile(int type) {
+        if (isExternalStorageWritable()) {
+            File orignalFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "myPhotos");
+            if (!orignalFile.exists()) {
+                if (!orignalFile.mkdirs()) {
+                    L.d("has not this img path");
+                    return null;
+                }
+            }
+
+            File externalFile = null;
+            String temp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+            StringBuilder sb = new StringBuilder();
+            if (type == MEDIA_TYPE_IMAGE) {
+                if (sb.length() > 0) sb.delete(0, sb.length());
+                sb.append(orignalFile.getPath() + File.separator + "img_" + temp + ".jpg");
+            } else if (type == MEDIA_TYPE_VIDEO) {
+                sb.append(orignalFile.getPath() + File.separator + "div_" + temp + ".mp4");
+            }
+            L.d("my photos path:" + sb.toString());
+            externalFile = new File(sb.toString());
+            return externalFile;
+        }
+        return null;
+    }
+
+
 }

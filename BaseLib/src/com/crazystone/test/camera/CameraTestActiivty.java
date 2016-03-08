@@ -48,9 +48,8 @@ public class CameraTestActiivty extends BaseActivity {
         super.onClick(view);
         if (view.getId() == R.id.camera_btn) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//            photoUri=getOutputUri();
-            photoFile=getOutputFile();
-            intent.putExtra(MediaStore.EXTRA_OUTPUT,photoFile );
+            photoUri = Uri.fromFile(StorageUtils.getExternalFile(StorageUtils.MEDIA_TYPE_IMAGE));
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
             startActivityForResult(intent, IMAGE_REQUEST_CODE);
         }
     }
@@ -60,17 +59,15 @@ public class CameraTestActiivty extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == IMAGE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                Bitmap map=BitmapFactory.decodeFile(StorageUtils.imgPath);
-                mImg_show_photo.setImageBitmap(map);
-//                Uri uri = null;
-//                if (data != null) {
-//                    uri = data.getData();
-//                    L.d("photo path:" + uri.getPath());
-//                    mImg_show_photo.setImageURI(uri);
-//                    UIUtils.shortToast(this, "photo path:" + uri.getPath());
-//                } else {
-//                    UIUtils.shortToast(this, "uri is null");
-//                }
+                Uri uri = null;
+                if (data != null) {//data is null (好像是URI的路径问题，但是我觉得没错啊！)
+                    uri = data.getData();
+                    L.d("photo path:" + uri.getPath());
+                    mImg_show_photo.setImageURI(uri);
+                    UIUtils.shortToast(this, "photo path:" + uri.getPath());
+                } else {
+                    UIUtils.shortToast(this, "uri is null");
+                }
             } else if (resultCode == RESULT_CANCELED) {
                 UIUtils.shortToast(this, "cancel");
             } else {
@@ -85,7 +82,7 @@ public class CameraTestActiivty extends BaseActivity {
         return uri;
     }
 
-    public File getOutputFile(){
+    public File getOutputFile() {
         return StorageUtils.getExternalFile(getRandomName());
     }
 
