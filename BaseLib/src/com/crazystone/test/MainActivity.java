@@ -4,6 +4,8 @@ import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 //import android.hardware.camera2.CameraManager;
 import android.os.Build;
@@ -37,16 +39,23 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        txt.setText("ni ma a ");
+
+        Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.ic_launcher);
+        txt.setText("size :"+sizeOf("hello",bitmap));
         edit.setText("hehheheheh");
         handControl();
+        //IoUtils.class;
 
 //        CameraManager
     }
 
 
+    private int sizeOf(String key, Bitmap value) {
+        return value.getRowBytes() * value.getHeight();
+    }
+
     private void handControl() {
-        
+
         $(btn);
 
     }

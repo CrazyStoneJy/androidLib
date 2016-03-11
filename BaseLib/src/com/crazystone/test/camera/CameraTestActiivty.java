@@ -15,6 +15,7 @@ import com.crazystone.quickdev.annotation.ViewInject;
 import com.crazystone.test.R;
 import com.crazystone.utils.BaseActivity;
 import com.crazystone.utils.StorageUtils;
+import com.crazystone.utils.common.BitmapUtils;
 import com.crazystone.utils.common.L;
 import com.crazystone.utils.common.UIUtils;
 
@@ -33,7 +34,7 @@ public class CameraTestActiivty extends BaseActivity {
     @ViewInject(R.id.img_photo)
     private ImageView mImg_show_photo;
     private Uri photoUri;//photo uri
-    private File photoFile;
+    private String photoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,10 @@ public class CameraTestActiivty extends BaseActivity {
         super.onClick(view);
         if (view.getId() == R.id.camera_btn) {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            photoUri = Uri.fromFile(StorageUtils.getExternalFile(StorageUtils.MEDIA_TYPE_IMAGE));
+            File photoFile = StorageUtils.getExternalFile(this, StorageUtils.MEDIA_TYPE_IMAGE);
+            photoPath = photoFile.getAbsolutePath();
+            L.d("photo path:" + photoPath);
+            photoUri = Uri.fromFile(photoFile);
             intent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
             startActivityForResult(intent, IMAGE_REQUEST_CODE);
         }
@@ -59,14 +63,24 @@ public class CameraTestActiivty extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == IMAGE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                Uri uri = null;
-                if (data != null) {//data is null (好像是URI的路径问题，但是我觉得没错啊！)
-                    uri = data.getData();
-                    L.d("photo path:" + uri.getPath());
-                    mImg_show_photo.setImageURI(uri);
-                    UIUtils.shortToast(this, "photo path:" + uri.getPath());
+//                Uri uri = null;
+//                if (data != null) {//data is null (好像是URI的路径问题，但是我觉得没错啊！)
+//                    uri = data.getData();
+//                    L.d("photo path:" + uri.getPath());
+//                    mImg_show_photo.setImageURI(uri);
+//                    UIUtils.shortToast(this, "photo path:" + uri.getPath());
+//                } else {
+//                    UIUtils.shortToast(this, "uri is null");
+//                }
+                if (photoPath != null) {
+                    Bitmap bitmap = BitmapUtils.getBitmapFromFile(photoPath);
+                    if (bitmap == null) {
+                        UIUtils.shortToast(this, "bitmap is null");
+                    }
+//                    mImg_show_photo.setImageBitmap(bitmap);
+                    mImg_show_photo.setImageURI(photoUri);
                 } else {
-                    UIUtils.shortToast(this, "uri is null");
+                    UIUtils.shortToast(this, "image path is null");
                 }
             } else if (resultCode == RESULT_CANCELED) {
                 UIUtils.shortToast(this, "cancel");

@@ -75,8 +75,9 @@ public class StorageUtils {
     }
 
 
-    public static File getExternalFile(int type) {
+    public static File getExternalFile(Context context, int type) {
         if (isExternalStorageWritable()) {
+//            File orignalFile = context.getExternalFilesDir("myphotos");
             File orignalFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "myPhotos");
             if (!orignalFile.exists()) {
                 if (!orignalFile.mkdirs()) {
