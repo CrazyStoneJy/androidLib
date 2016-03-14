@@ -63,7 +63,7 @@ public class LruMemoryCache implements MemoryCache {
         if (key == null || value == null) {
             throw new NullPointerException("key == null || value == null");
         }
-//我觉得这写的有问题（LRU 最近最少使用原理）
+        //我觉得这写的有问题（LRU 最近最少使用原理）
         synchronized (this) {
             size += sizeOf(key, value);
             Bitmap previous = map.put(key, value);//判断原先map中是否有<key,value>元素

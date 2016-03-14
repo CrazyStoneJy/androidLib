@@ -17,6 +17,8 @@ public class ImageCacheActivity extends BaseActivity {
 //        com.nostra13.universalimageloader.core.ImageLoader loader=com.nostra13.universalimageloader.core.ImageLoader.getInstance();
 //        ImageLoader.ImageCache
 
+//        com.nostra13.universalimageloader.core.ImageLoader loader= com.nostra13.universalimageloader.core.ImageLoader.getInstance();
+//        loader.
 
 
     }
