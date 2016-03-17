@@ -1,25 +1,37 @@
 package com.crazystone.test.image;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import com.android.volley.toolbox.ImageLoader;
+import com.crazystone.quickdev.annotation.SetContentView;
+import com.crazystone.quickdev.annotation.ViewInject;
+import com.crazystone.test.R;
 import com.crazystone.utils.BaseActivity;
+import com.crazystone.utils.image.ImageLoaderUtils;
 import com.google.gson.Gson;
 
 /**
  * Created by crazystone on 2016/3/11.
  */
+@SetContentView(R.layout.activity_img)
 public class ImageCacheActivity extends BaseActivity {
+
+    @ViewInject(R.id.img)
+    private ImageView img;
+
+    private ImageLoaderUtils mUtils;
+
+    private String url="http://img02.tooopen.com/images/20160216/tooopen_sy_156324542564.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mUtils=ImageLoaderUtils.getInstance();
+        mUtils.init(this);
+        downLoadImg();
+    }
 
-//        com.nostra13.universalimageloader.core.ImageLoader loader=com.nostra13.universalimageloader.core.ImageLoader.getInstance();
-//        ImageLoader.ImageCache
-
-//        com.nostra13.universalimageloader.core.ImageLoader loader= com.nostra13.universalimageloader.core.ImageLoader.getInstance();
-//        loader.
-
-
+    private void downLoadImg() {
+        mUtils.setImageUrl(this,url,img);
     }
 }

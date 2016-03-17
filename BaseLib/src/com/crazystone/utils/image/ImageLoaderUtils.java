@@ -12,12 +12,18 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 
 import java.io.File;
 
 /**
+ * 使用前先调用单例模式，
+ * 再调用init(Context context)
+ *
+ * @see #init(Context)
+ * 最后在显示图片setImageUrl()
  * Created by crazystone on 2016/3/11.
  */
 public class ImageLoaderUtils {
@@ -61,35 +67,36 @@ public class ImageLoaderUtils {
      *
      * @param context
      */
-    public static void init(Context context) {
+    public void init(Context context) {
         mImageLoader = ImageLoader.getInstance();
         File cachePath = StorageUtils.getOwnCacheDirectory(context, DISK_CACHE_PATH);
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).
                 threadPriority(Thread.MIN_PRIORITY).  //设置线程优先级
-                imageDownloader(new BaseImageDownloader(context, DOWNLOADER_CONNECT_TIMEOUT, DOWNLOADER_CONNECT_TIMEOUT)). //设置下载器的连接，读取时长
+                imageDownloader(new BaseImageDownloader(context, DOWNLOADER_CONNECT_TIMEOUT, DOWNLOADER_READ_TIMEOUT)). //设置下载器的连接，读取时长
                 imageDecoder(new BaseImageDecoder(true)).  //bool变量是是否开启logcat
                 threadPoolSize(MAX_THRED).   //线程池的最大线程数
                 tasksProcessingOrder(QueueProcessingType.FIFO).
-                memoryCacheExtraOptions(400, 800).   //存储图片的最大长度，宽度
+                memoryCacheExtraOptions(MAX_BITMAP_WIDTH, MAX_BITMAP_HEIGHT).   //存储图片的最大长度，宽度
                 denyCacheImageMultipleSizesInMemory().   //
                 memoryCache(new UsingFreqLimitedMemoryCache(MAX_MEMORY_CACHE_SIZE)).  //内存缓存的方式
                 memoryCacheSize(MAX_MEMORY_CACHE_SIZE).    //内存缓存的最大值
-                diskCache(new UnlimitedDiskCache(cachePath)).   //sdcard缓存的方式和路径
+                diskCache(new UnlimitedDiskCache(cachePath)).  //sdcard缓存的方式和路径
+                diskCacheSize(MAX_DISK_CACHE_SIZE).   //sdcard缓存大小
                 diskCacheFileNameGenerator(new Md5FileNameGenerator()).build();    //sdcard缓存的文件名用MD5加密
 
         mImageLoader.init(config);
     }
 
 
-    public static <E extends ImageView> void setImageUrl(Context context, String url, E imageview) {
+    public <E extends ImageView> void setImageUrl(Context context, String url, E imageview) {
         setImageUrl(context, url, imageview, 0, 0, 0);
     }
 
 
-    public static <E extends ImageView> void setImageUrl(Context context, String url, E imageView, int onLoadingResId, int onFailResId, int onEmptyResId) {
+    public <E extends ImageView> void setImageUrl(Context context, String url, E imageView, int onLoadingResId, int onFailResId, int onEmptyResId) {
         if (mImageLoader == null) init(context);
         if (imageView instanceof ImageView) {
-            mImageLoader.displayImage(url, imageView, configDisplayOptions(onLoadingResId, onFailResId, onEmptyResId));
+            mImageLoader.displayImage(url, imageView, configDisplayOptions(DisplayType.DEFALUT,onLoadingResId, onFailResId, onEmptyResId));
         } else {
             throw new ClassCastException("you view can not be casted ImageView");
         }
@@ -101,11 +108,12 @@ public class ImageLoaderUtils {
      *
      * @return DisplayImageOptions
      */
-    private static DisplayImageOptions configDisplayOptions(int onladingResId, int onFailResId, int onEmptyResId) {
+    private static DisplayImageOptions configDisplayOptions(DisplayType type, int onladingResId, int onFailResId, int onEmptyResId) {
 
         DisplayImageOptions options = new DisplayImageOptions.Builder().
                 showImageOnLoading(onladingResId).
                 showImageOnFail(onFailResId).
+                displayer(new SimpleBitmapDisplayer()).  //可修改多种显示类型（圆，圆角矩形，默认）
                 showImageForEmptyUri(onEmptyResId).
                 cacheInMemory(true).   //true支持缓存在内存
                 cacheOnDisk(true).   //true支持缓存在sdcard
