@@ -32,6 +32,13 @@ public class GsonRequest<T> extends Request<T> {
         this.listener = listener;
     }
 
+    public GsonRequest(String url, Class<T> clazz,
+                       Response.Listener<T> listener, Response.ErrorListener errorListener) {
+
+        this(url, clazz, null, listener, errorListener);
+    }
+
+
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
         return headers != null ? headers : super.getHeaders();
