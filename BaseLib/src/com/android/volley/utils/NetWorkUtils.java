@@ -1,6 +1,8 @@
 package com.android.volley.utils;
 
 import android.content.Context;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
 /**
@@ -10,11 +12,14 @@ import com.android.volley.toolbox.Volley;
 public class NetWorkUtils {
 
     private static NetWorkUtils mUtils;
-    private Context mContext;
+    private static Context mContext;
+    private static RequestQueue mQueue;
+    public static String HOST = "";
 
     private NetWorkUtils() {
     }
 
+    @Deprecated
     public static NetWorkUtils getInstance() {
         if (mUtils == null) {
             synchronized (NetWorkUtils.class) {
@@ -30,10 +35,15 @@ public class NetWorkUtils {
         return getInstance();
     }
 
-    public void init(Context context) {
-        this.mContext = context;
-        Volley.newRequestQueue(mContext);
+    public static void init(Context context) {
+        mContext = context;
+        HOST = PropertiesUtils.getHost(context);
+        mQueue = Volley.newRequestQueue(mContext);
     }
 
+    public <T> void addRequest(Context context, Request<T> request) {
+        if (mQueue == null) init(context);
+        mQueue.add(request);
+    }
 
 }

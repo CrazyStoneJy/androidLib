@@ -68,6 +68,7 @@ public class LruMemoryCache implements MemoryCache {
             size += sizeOf(key, value);
             Bitmap previous = map.put(key, value);//判断原先map中是否有<key,value>元素
             if (previous != null) {//有问题（我觉得应该是:如果存在，则将原来的<key,value>删掉，在map的末尾加上<key,value>）
+                changeMapValuePos(key, value);
                 size -= sizeOf(key, previous);
             }
         }
