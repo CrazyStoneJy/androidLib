@@ -2,16 +2,14 @@ package com.crazystone.test.camera;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import com.crazystone.quickdev.annotation.SetContentView;
-import com.crazystone.quickdev.annotation.ViewInject;
+import com.crazystone.utils.quickdev.annotation.SetContentView;
+import com.crazystone.utils.quickdev.annotation.ViewInject;
 import com.crazystone.test.R;
 import com.crazystone.utils.BaseActivity;
 import com.crazystone.utils.StorageUtils;

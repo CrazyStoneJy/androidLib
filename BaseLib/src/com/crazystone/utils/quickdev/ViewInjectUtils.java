@@ -1,10 +1,9 @@
-package com.crazystone.quickdev;
+package com.crazystone.utils.quickdev;
 
 import android.app.Activity;
-import android.content.Context;
 import android.util.Log;
-import com.crazystone.quickdev.annotation.SetContentView;
-import com.crazystone.quickdev.annotation.ViewInject;
+import com.crazystone.utils.quickdev.annotation.SetContentView;
+import com.crazystone.utils.quickdev.annotation.ViewInject;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

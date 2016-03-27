@@ -1,7 +1,7 @@
 package com.crazystone.test.graphic.shader;
 
 import android.os.Bundle;
-import com.crazystone.quickdev.annotation.SetContentView;
+import com.crazystone.utils.quickdev.annotation.SetContentView;
 import com.crazystone.test.R;
 import com.crazystone.utils.BaseActivity;
 

@@ -1,7 +1,6 @@
 package com.crazystone.utils;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,7 +9,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.GsonRequest;
 import com.android.volley.utils.NetWorkParams;
 import com.android.volley.utils.NetWorkUtils;
-import com.crazystone.quickdev.ViewInjectUtils;
+import com.crazystone.utils.quickdev.ViewInjectUtils;
 
 import java.util.Map;
 

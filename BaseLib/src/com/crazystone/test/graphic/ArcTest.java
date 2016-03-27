@@ -3,10 +3,7 @@ package com.crazystone.test.graphic;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.crazystone.quickdev.annotation.SetContentView;
-import com.crazystone.quickdev.annotation.ViewInject;
 import com.crazystone.test.R;
-import com.crazystone.test.graphic.MyArc;
 import com.crazystone.utils.BaseActivity;
 
 /**

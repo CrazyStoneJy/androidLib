@@ -1,7 +1,5 @@
 package com.crazystone.test.animation.PropertyAnim.test1;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
 import android.graphics.PointF;
@@ -10,12 +8,11 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
-import com.crazystone.quickdev.annotation.SetContentView;
-import com.crazystone.quickdev.annotation.ViewInject;
+import com.crazystone.utils.quickdev.annotation.SetContentView;
+import com.crazystone.utils.quickdev.annotation.ViewInject;
 import com.crazystone.test.R;
 import com.crazystone.utils.BaseActivity;
 import com.crazystone.utils.common.L;
-import com.crazystone.utils.common.ScreenUtils;
 
 /**
  * Created by crazystone on 2016/1/5.

@@ -2,22 +2,14 @@ package com.crazystone.test.http;
 
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.GsonRequest;
-import com.android.volley.toolbox.Volley;
 import com.android.volley.utils.NetWorkParams;
-import com.android.volley.utils.NetWorkUtils;
-import com.crazystone.quickdev.annotation.SetContentView;
-import com.crazystone.quickdev.annotation.ViewInject;
+import com.crazystone.utils.quickdev.annotation.SetContentView;
+import com.crazystone.utils.quickdev.annotation.ViewInject;
 import com.crazystone.test.R;
 import com.crazystone.utils.BaseActivity;
 import com.crazystone.utils.common.UIUtils;
-
-import java.lang.annotation.Retention;
 
 /**
  * Created by crazystone on 2016/3/7.

@@ -1,4 +1,4 @@
-package com.crazystone.quickdev.annotation;
+package com.crazystone.utils.quickdev.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

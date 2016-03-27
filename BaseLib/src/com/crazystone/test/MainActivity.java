@@ -1,12 +1,9 @@
 package com.crazystone.test;
 
 import android.animation.ObjectAnimator;
-import android.animation.TimeInterpolator;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.hardware.Camera;
 //import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,9 +12,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.crazystone.quickdev.ViewInjectUtils;
-import com.crazystone.quickdev.annotation.SetContentView;
-import com.crazystone.quickdev.annotation.ViewInject;
+import com.crazystone.utils.quickdev.annotation.SetContentView;
+import com.crazystone.utils.quickdev.annotation.ViewInject;
 import com.crazystone.utils.BaseActivity;
 
 /**

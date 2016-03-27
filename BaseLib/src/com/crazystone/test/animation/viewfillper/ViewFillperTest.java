@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
-import com.crazystone.quickdev.annotation.SetContentView;
-import com.crazystone.quickdev.annotation.ViewInject;
+import com.crazystone.utils.quickdev.annotation.SetContentView;
+import com.crazystone.utils.quickdev.annotation.ViewInject;
 import com.crazystone.test.R;
 import com.crazystone.utils.BaseActivity;
 

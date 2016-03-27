@@ -3,8 +3,8 @@ package com.crazystone.test.animation.test1;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.crazystone.quickdev.annotation.SetContentView;
-import com.crazystone.quickdev.annotation.ViewInject;
+import com.crazystone.utils.quickdev.annotation.SetContentView;
+import com.crazystone.utils.quickdev.annotation.ViewInject;
 import com.crazystone.test.R;
 import com.crazystone.utils.BaseActivity;
 

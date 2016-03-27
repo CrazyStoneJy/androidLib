@@ -1,4 +1,4 @@
-package com.crazystone.quickdev.adapter;
+package com.crazystone.utils.quickdev.adapter;
 
 import android.content.Context;
 import android.view.View;
