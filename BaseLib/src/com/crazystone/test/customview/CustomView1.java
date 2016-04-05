@@ -118,10 +118,9 @@ public class CustomView1 extends View {
 ////        Rect dest=new Rect(-20,-20,20,20);
 //        canvas.drawBitmap(bitmap, src, dest, mPaint);
 
-        canvas.drawBitmap(bitmap,-mXpivot,-mYpivot,mPaint);
+        canvas.drawBitmap(bitmap, -mXpivot, -mYpivot, mPaint);
 //        canvas.drawArc();
 //        android.opengl.Matrix
-
 
     }
 

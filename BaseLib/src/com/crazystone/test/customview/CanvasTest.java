@@ -13,5 +13,6 @@ public class CanvasTest extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(new CustomView1(this));
+
     }
 }
