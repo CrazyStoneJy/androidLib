@@ -1,5 +1,7 @@
 package com.crazystone.test.datastructure.data;
 
+import java.util.Iterator;
+
 /**
  * Created by crazystone on 2016/3/30.
  */
@@ -26,6 +28,6 @@ public interface Tree<E extends Comparable<E>> {
 
     public void clear();
 
-    public void iterator();
+    public Iterator iterator();
 
 }

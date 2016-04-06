@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.crazystone.test.datastructure.view.MyTreeView android:layout_height="200dp"
+                                                       android:layout_width="match_parent"
+                                                       android:id="@+id/treeview"/>
+
+    <RelativeLayout android:layout_height="wrap_content"
+                    android:id="@+id/relative"
+                    android:layout_width="wrap_content">
+
+        <TextView android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"
+                  android:id="@+id/txt_input_number"
+                  android:layout_centerVertical="true"
+                  android:text="@string/input_some_number"/>
+
+        <EditText android:layout_height="wrap_content"
+                  android:layout_width="100dp"
+                  android:layout_centerVertical="true"
+                  android:layout_toRightOf="@id/txt_input_number"
+                  android:id="@+id/edt_number"/>
+
+        <Button android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="insert"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/edt_number"
+                android:id="@+id/btn_insert"/>
+
+        <Button android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="delete"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/btn_insert"
+                android:id="@+id/btn_delete"/>
+    </RelativeLayout>
+
+    <LinearLayout android:layout_height="wrap_content"
+                  android:layout_width="match_parent"
+                  android:gravity="center_horizontal"
+                  android:orientation="horizontal">
+        <EditText android:layout_height="wrap_content"
+                  android:layout_width="100dp"
+                  android:id="@+id/edt_search_number"/>
+        <Button android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="search"
+                android:id="@+id/btn_search"/>
+    </LinearLayout>
+
+</LinearLayout>

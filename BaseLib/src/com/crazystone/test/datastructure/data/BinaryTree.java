@@ -54,16 +54,16 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
         return true;
     }
 
+    /* 注意：要将root的引用传给另一个节点，否则search完，会改变root的位置 */
     @Override
     public boolean search(E e) {
-
         if (isEmpty()) return false;
-
-        while (root != null) {
-            if (root.element.compareTo(e) < 0) {
-                root = root.left;
-            } else if (root.element.compareTo(e) > 0) {
-                root = root.right;
+        TreeNode current = root;
+        while (current != null) {
+            if (current.element.compareTo(e) < 0) {
+                current = current.right;
+            } else if (current.element.compareTo(e) > 0) {
+                current = current.left;
             } else {
                 return true;
             }
@@ -188,8 +188,8 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
     }
 
     @Override
-    public void iterator() {
-        inorderIterator();
+    public Iterator iterator() {
+        return inorderIterator();
     }
 
     /* 获取tree的最大深度 */
@@ -222,7 +222,7 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
         return new InorderIterator();
     }
 
-    public static class TreeNode<E> {
+    public static class TreeNode<E extends Comparable<E>> {
         public TreeNode<E> left;
         public TreeNode<E> right;
         public E element;
