@@ -10,6 +10,7 @@ import com.crazystone.test.datastructure.data.BinaryTree;
 import com.crazystone.test.datastructure.data.Tree;
 
 import java.math.MathContext;
+import java.util.List;
 
 /**
  * Created by crazystone on 2016/4/5.
@@ -35,9 +36,10 @@ public class MyTreeView extends View {
     private Integer key;
     /* 是否搜索的boolean变量 */
     private boolean isSearch;
-
     /*  tree数据结构 */
     private BinaryTree<Integer> mTree;
+    /* key在树的路径（即查询key所经过的节点）  */
+    private List<BinaryTree.TreeNode<Integer>> mTreePath;
 
     public MyTreeView(Context context) {
         this(context, null, 0);
@@ -67,7 +69,9 @@ public class MyTreeView extends View {
 
         //fixme has problems
         if (isSearch) {
-            if (mTree.search(key)) {
+            mTreePath = mTree.path(key);
+            if (mTreePath == null) return;
+            if (mTreePath.contains(root.element)) {
                 canvas.drawCircle(x, y, RADIUS, mSearchPaint);
             }
         } else {

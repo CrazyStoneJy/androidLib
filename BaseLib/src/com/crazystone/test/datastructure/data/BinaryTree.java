@@ -29,7 +29,6 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
     public boolean insert(E e) {
         if (root == null) {
             root = createNewNode(e);
-            return true;
         } else {
             TreeNode<E> parent = null;
             TreeNode<E> current = root;
@@ -283,5 +282,24 @@ public class BinaryTree<E extends Comparable<E>> extends AbstractTree<E> {
 
         return false;
     }
+
+
+    public List<TreeNode<E>> path(E key) {
+        List<TreeNode<E>> pathList = new ArrayList<TreeNode<E>>();
+        TreeNode current = root;
+        while (current != null) {
+            if (current.element.compareTo(key) < 0) {
+                pathList.add(current);
+                current = current.right;
+            } else if (current.element.compareTo(key) > 0) {
+                pathList.add(current);
+                current = current.left;
+            } else {
+                return pathList;
+            }
+        }
+        return null;
+    }
+
 
 }
