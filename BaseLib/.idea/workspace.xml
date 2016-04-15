@@ -52,8 +52,8 @@
       <file leaf-file-name="MyTreeView.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/crazystone/test/datastructure/view/MyTreeView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4544432">
-              <caret line="72" column="42" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.13048369">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1262,12 +1262,12 @@
       <workItem from="1459155125495" duration="2776000" />
       <workItem from="1459477285897" duration="1019000" />
       <workItem from="1459837056823" duration="19313000" />
-      <workItem from="1460015810486" duration="3526000" />
+      <workItem from="1460015810486" duration="4649000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37834000" />
+    <option name="totallyTimeSpent" value="38957000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -3679,8 +3679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/crazystone/test/datastructure/view/MyTreeView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4544432">
-          <caret line="72" column="42" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.13048369">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
